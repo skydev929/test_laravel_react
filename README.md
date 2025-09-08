@@ -1,11 +1,9 @@
 # React + Laravel Project
 
-Run locally in minutes using either SQLite (no database install) or your existing MySQL.
-
 ## Project Structure
 
 ```
-React_Laravel/
+test_laravel_react/
 ├── backend/                 # Laravel API
 │   ├── app/                 # Controllers, Models
 │   ├── config/              # Laravel config
@@ -13,58 +11,26 @@ React_Laravel/
 │   ├── routes/              # API routes
 │   └── public/              # Laravel public entry
 ├── ui/                      # React frontend
-│   ├── src/                 # Components, app code
-│   └── public/              # Static assets
-└── scripts/                 # Helper scripts
-    └── run-windows.bat      # One-click Windows starter (SQLite)
+└── ├── src/                 # Components, app code
+    └── public/              # Static assets
     
 ```
-
-## Quick Start (Windows)
-
-Double‑click `scripts/run-windows.bat`.
-- Uses SQLite automatically (no MySQL needed)
-- Installs Composer/NPM deps if missing
-- Runs migrations + seeders
-- Starts API (http://127.0.0.1:8000) and UI (http://127.0.0.1:3000)
 
 ## Manual Setup (Cross‑platform)
 
 ### Prerequisites
 - PHP 8.1+, Composer
 - Node.js 18+, npm
-- Optional: MySQL (if you don’t want SQLite)
+- MySQL
 
 ### 1) Get the code
 ```bash
 git clone <repository-url>
-cd React_Laravel
+cd test_laravel_react
 ```
 
 ### 2) Backend (choose one)
 
-Option A — SQLite (simple):
-```bash
-cd backend
-cp .env.example .env
-composer install
-php artisan key:generate
-
-# In .env set:
-# DB_CONNECTION=sqlite
-# DB_DATABASE=database/database.sqlite
-
-# Create SQLite file
-mkdir -p database
-type NUL > database/database.sqlite  # Windows cmd
-# (macOS/Linux) : touch database/database.sqlite
-
-php artisan migrate --force
-php artisan db:seed --force
-php artisan serve --host=127.0.0.1 --port=8000
-```
-
-Option B — MySQL (use your existing DB):
 ```sql
 -- Connect via your MySQL client, then run:
 CREATE DATABASE laravel CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -96,7 +62,7 @@ php artisan serve --host=127.0.0.1 --port=8000
 ```bash
 cd ui
 echo REACT_APP_API_BASE_URL=http://127.0.0.1:8000/api> .env
-npm install
+npm install --force
 npm start
 ```
 
